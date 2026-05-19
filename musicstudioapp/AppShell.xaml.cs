@@ -1,10 +1,9 @@
-﻿namespace musicstudioapp
+﻿namespace musicstudioapp;
+
+public partial class AppShell : Shell
 {
-    public partial class AppShell : Shell
+    public AppShell()
     {
-        public AppShell()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

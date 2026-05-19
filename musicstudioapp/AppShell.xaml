@@ -1,14 +1,137 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <Shell
     x:Class="musicstudioapp.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:musicstudioapp"
-    Title="musicstudioapp">
+    xmlns:pages="clr-namespace:musicstudioapp.Pages"
+    Shell.FlyoutBehavior="Flyout"
+    Title="37 Music Studio">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <Shell.FlyoutHeader>
+        <Grid BackgroundColor="#020617" Padding="24" HeightRequest="150">
+            <VerticalStackLayout VerticalOptions="Center">
+                <Label
+                    Text="37 Music Studio"
+                    TextColor="White"
+                    FontSize="24"
+                    FontAttributes="Bold" />
+
+                <Label
+                    Text="Studio Management System"
+                    TextColor="#94A3B8"
+                    FontSize="13" />
+            </VerticalStackLayout>
+        </Grid>
+    </Shell.FlyoutHeader>
+
+    <FlyoutItem Title="Dashboard" Route="dashboard">
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       <ShellContent
+            Title="Dashboard"
+            ContentTemplate="{DataTemplate pages:DashboardPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Booking Calendar" Route="booking">
+        <ShellContent
+            Title="Booking Calendar"
+            ContentTemplate="{DataTemplate pages:BookingCalendarPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Customer" Route="customers">
+        <ShellContent
+            Title="Customer"
+            ContentTemplate="{DataTemplate pages:CustomersPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Inventory" Route="inventory">
+        <ShellContent
+            Title="Inventory"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            ContentTemplate="{DataTemplate pages:InventoryPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Billing / POS" Route="billing">
+        <ShellContent
+            Title="Billing / POS"
+            ContentTemplate="{DataTemplate pages:BillingPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Pembukuan" Route="accounting">
+        <ShellContent
+            Title="Pembukuan"
+            ContentTemplate="{DataTemplate pages:AccountingPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Setting" Route="settings">
+        <ShellContent
+            Title="Setting"
+            ContentTemplate="{DataTemplate pages:SettingsPage}" />
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   </FlyoutItem>
 
 </Shell>

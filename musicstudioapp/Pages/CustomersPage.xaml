@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="musicstudioapp.Pages.CustomersPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Customer"
+    BackgroundColor="#0F172A">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="24" Spacing="18">
+
+            <Label
+                Text="Customer"
+                FontSize="30"
+                FontAttributes="Bold"
+                TextColor="White" />
+
+            <Label
+                Text="Database customer, band, kontak, histori booking, dan catatan pelanggan."
+                FontSize="16"
+                TextColor="#CBD5E1" />
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+           <Border
+                StrokeShape="RoundRectangle 24"
+                BackgroundColor="#1E293B"
+                Padding="20">
+
+                <VerticalStackLayout Spacing="8">
+                    <Label
+                        Text="Coming Soon"
+                        FontSize="22"
+                        FontAttributes="Bold"
+                        TextColor="White" />
+
+                    <Label
+                        Text="Halaman ini akan kita bangun step by step sampai jadi fitur lengkap."
+                        FontSize="14"
+                        TextColor="#94A3B8" />
+                </VerticalStackLayout>
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+           </Border>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
