@@ -7,90 +7,200 @@
     BackgroundColor="#0F172A">
 
     <ScrollView>
-        <VerticalStackLayout Padding="24" Spacing="18">
+        <VerticalStackLayout Padding="24" Spacing="22">
 
-            <Label
-                Text="Dashboard"
-                FontSize="30"
-                FontAttributes="Bold"
-                TextColor="White" />
+            <VerticalStackLayout Spacing="4">
+                <Label
+                    Text="37 Music Studio"
+                    FontSize="32"
+                    FontAttributes="Bold"
+                    TextColor="White" />
 
-            <Label
-                Text="Ringkasan booking, pendapatan, customer, inventory, dan aktivitas studio."
-                FontSize="16"
-                TextColor="#CBD5E1" />
+                <Label
+                    Text="Dashboard management studio musik"
+                    FontSize="15"
+                    TextColor="#94A3B8" />
+            </VerticalStackLayout>
 
- 
+            <Grid
+                ColumnDefinitions="*,*"
+                RowDefinitions="Auto,Auto"
+                ColumnSpacing="14"
+                RowSpacing="14">
 
+                <Border
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    StrokeShape="RoundRectangle 22"
+                    BackgroundColor="#1E293B"
+                    Padding="18">
 
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="Booking Hari Ini" TextColor="#94A3B8" FontSize="13" />
+                        <Label x:Name="TodayBookingsLabel" Text="0" TextColor="White" FontSize="34" FontAttributes="Bold" />
+                    </VerticalStackLayout>
+                </Border>
 
+                <Border
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    StrokeShape="RoundRectangle 22"
+                    BackgroundColor="#1E293B"
+                    Padding="18">
 
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="Pendapatan Hari Ini" TextColor="#94A3B8" FontSize="13" />
+                        <Label x:Name="TodayRevenueLabel" Text="Rp 0" TextColor="White" FontSize="24" FontAttributes="Bold" />
+                    </VerticalStackLayout>
+                </Border>
 
+                <Border
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    StrokeShape="RoundRectangle 22"
+                    BackgroundColor="#1E293B"
+                    Padding="18">
 
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="Total Customer" TextColor="#94A3B8" FontSize="13" />
+                        <Label x:Name="TotalCustomersLabel" Text="0" TextColor="White" FontSize="34" FontAttributes="Bold" />
+                    </VerticalStackLayout>
+                </Border>
 
+                <Border
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    StrokeShape="RoundRectangle 22"
+                    BackgroundColor="#1E293B"
+                    Padding="18">
 
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="Low Stock" TextColor="#94A3B8" FontSize="13" />
+                        <Label x:Name="LowStockLabel" Text="0" TextColor="White" FontSize="34" FontAttributes="Bold" />
+                    </VerticalStackLayout>
+                </Border>
 
+            </Grid>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-           <Border
-                StrokeShape="RoundRectangle 24"
-                BackgroundColor="#1E293B"
+            <Border
+                StrokeShape="RoundRectangle 26"
+                BackgroundColor="#111827"
                 Padding="20">
 
-                <VerticalStackLayout Spacing="8">
+                <VerticalStackLayout Spacing="14">
+
                     <Label
-                        Text="Coming Soon"
-                        FontSize="22"
+                        Text="Booking Terdekat"
+                        FontSize="20"
                         FontAttributes="Bold"
                         TextColor="White" />
 
-                    <Label
-                        Text="Halaman ini akan kita bangun step by step sampai jadi fitur lengkap."
-                        FontSize="14"
-                        TextColor="#94A3B8" />
+                    <CollectionView x:Name="UpcomingBookingsView">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Border
+                                    StrokeShape="RoundRectangle 18"
+                                    BackgroundColor="#1E293B"
+                                    Padding="14"
+                                    Margin="0,0,0,10">
+
+                                    <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto,Auto">
+                                        <Label
+                                            Grid.Row="0"
+                                            Grid.Column="0"
+                                            Text="{Binding CustomerName}"
+                                            TextColor="White"
+                                            FontSize="16"
+                                            FontAttributes="Bold" />
+
+                                        <Label
+                                            Grid.Row="0"
+                                            Grid.Column="1"
+                                            Text="{Binding Status}"
+                                            TextColor="#38BDF8"
+                                            FontSize="12"
+                                            FontAttributes="Bold" />
+
+                                        <Label
+                                            Grid.Row="1"
+                                            Grid.Column="0"
+                                            Grid.ColumnSpan="2"
+                                            Text="{Binding RoomName}"
+                                            TextColor="#CBD5E1"
+                                            FontSize="13" />
+
+                                        <Label
+                                            Grid.Row="2"
+                                            Grid.Column="0"
+                                            Grid.ColumnSpan="2"
+                                            Text="{Binding ScheduleText}"
+                                            TextColor="#94A3B8"
+                                            FontSize="13" />
+                                    </Grid>
+
+                                </Border>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+
                 </VerticalStackLayout>
+            </Border>
 
- 
+            <Border
+                StrokeShape="RoundRectangle 26"
+                BackgroundColor="#111827"
+                Padding="20">
 
+                <VerticalStackLayout Spacing="14">
 
+                    <Label
+                        Text="Inventory Perlu Perhatian"
+                        FontSize="20"
+                        FontAttributes="Bold"
+                        TextColor="White" />
 
+                    <CollectionView x:Name="LowStockItemsView">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Border
+                                    StrokeShape="RoundRectangle 18"
+                                    BackgroundColor="#1E293B"
+                                    Padding="14"
+                                    Margin="0,0,0,10">
 
+                                    <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto">
+                                        <Label
+                                            Grid.Row="0"
+                                            Grid.Column="0"
+                                            Text="{Binding Name}"
+                                            TextColor="White"
+                                            FontSize="16"
+                                            FontAttributes="Bold" />
 
+                                        <Label
+                                            Grid.Row="0"
+                                            Grid.Column="1"
+                                            Text="{Binding StockText}"
+                                            TextColor="#F97316"
+                                            FontSize="13"
+                                            FontAttributes="Bold" />
 
+                                        <Label
+                                            Grid.Row="1"
+                                            Grid.Column="0"
+                                            Grid.ColumnSpan="2"
+                                            Text="{Binding Notes}"
+                                            TextColor="#94A3B8"
+                                            FontSize="13" />
+                                    </Grid>
 
+                                </Border>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
 
-
-
-
-
-
-
-
-
-
-           </Border>
+                </VerticalStackLayout>
+            </Border>
 
         </VerticalStackLayout>
     </ScrollView>
