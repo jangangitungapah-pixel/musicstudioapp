@@ -3,204 +3,337 @@
     x:Class="musicstudioapp.Pages.DashboardPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.Maui;assembly=LiveChartsCore.SkiaSharpView.Maui"
     Title="Dashboard"
-    BackgroundColor="#0F172A">
+    BackgroundColor="{StaticResource AppBg}">
 
     <ScrollView>
-        <VerticalStackLayout Padding="24" Spacing="22">
+        <VerticalStackLayout
+            x:Name="RootContent"
+            Padding="24"
+            Spacing="22"
+            Opacity="0"
+            TranslationY="18">
 
-            <VerticalStackLayout Spacing="4">
-                <Label
-                    Text="37 Music Studio"
-                    FontSize="32"
-                    FontAttributes="Bold"
-                    TextColor="White" />
+            <!-- HERO -->
+            <Border
+                x:Name="HeroCard"
+                Style="{StaticResource GlassCard}">
 
-                <Label
-                    Text="Dashboard management studio musik"
-                    FontSize="15"
-                    TextColor="#94A3B8" />
-            </VerticalStackLayout>
+                <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto,Auto" ColumnSpacing="18">
 
+                    <VerticalStackLayout Grid.Column="0" Spacing="8">
+                        <Label
+                            Text="37 Music Studio"
+                            Style="{StaticResource PageTitle}" />
+
+                        <Label
+                            Text="Control room untuk booking, billing, inventory, dan pembukuan studio."
+                            Style="{StaticResource MutedText}" />
+
+                        <HorizontalStackLayout Spacing="10" Margin="0,10,0,0">
+                            <Border
+                                StrokeShape="RoundRectangle 99"
+                                BackgroundColor="#18233A"
+                                Stroke="{StaticResource StrokeSoft}"
+                                Padding="12,7">
+
+                                <Label
+                                    x:Name="TodayStatusLabel"
+                                    Text="Live Today"
+                                    TextColor="{StaticResource Accent}"
+                                    FontAttributes="Bold"
+                                    FontSize="12" />
+                            </Border>
+
+                            <Border
+                                StrokeShape="RoundRectangle 99"
+                                BackgroundColor="#1C1830"
+                                Stroke="{StaticResource StrokeSoft}"
+                                Padding="12,7">
+
+                                <Label
+                                    Text="Studio Ops"
+                                    TextColor="{StaticResource PrimaryLight}"
+                                    FontAttributes="Bold"
+                                    FontSize="12" />
+                            </Border>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+
+                    <Border
+                        Grid.Column="1"
+                        StrokeShape="RoundRectangle 26"
+                        BackgroundColor="#101A2D"
+                        Stroke="#273653"
+                        Padding="18"
+                        WidthRequest="130"
+                        HorizontalOptions="End"
+                        VerticalOptions="Center">
+
+                        <VerticalStackLayout Spacing="4" HorizontalOptions="Center">
+                            <Label
+                                Text="Revenue"
+                                TextColor="{StaticResource TextMuted}"
+                                FontSize="12"
+                                HorizontalTextAlignment="Center" />
+
+                            <Label
+                                x:Name="HeroRevenueLabel"
+                                Text="Rp 0"
+                                TextColor="{StaticResource TextPrimary}"
+                                FontSize="20"
+                                FontAttributes="Bold"
+                                HorizontalTextAlignment="Center" />
+
+                            <Label
+                                Text="today"
+                                TextColor="{StaticResource TextDim}"
+                                FontSize="11"
+                                HorizontalTextAlignment="Center" />
+                        </VerticalStackLayout>
+                    </Border>
+
+                </Grid>
+            </Border>
+
+            <!-- METRICS -->
             <Grid
+                x:Name="MetricsGrid"
                 ColumnDefinitions="*,*"
                 RowDefinitions="Auto,Auto"
                 ColumnSpacing="14"
                 RowSpacing="14">
 
-                <Border
-                    Grid.Row="0"
-                    Grid.Column="0"
-                    StrokeShape="RoundRectangle 22"
-                    BackgroundColor="#1E293B"
-                    Padding="18">
-
+                <Border Grid.Row="0" Grid.Column="0" Style="{StaticResource ModernCard}">
                     <VerticalStackLayout Spacing="8">
-                        <Label Text="Booking Hari Ini" TextColor="#94A3B8" FontSize="13" />
-                        <Label x:Name="TodayBookingsLabel" Text="0" TextColor="White" FontSize="34" FontAttributes="Bold" />
+                        <Label Text="Booking Hari Ini" TextColor="{StaticResource TextMuted}" FontSize="13" />
+                        <Label x:Name="TodayBookingsLabel" Text="0" TextColor="{StaticResource TextPrimary}" FontSize="34" FontAttributes="Bold" />
+                        <Label x:Name="TodayBookingSubtitleLabel" Text="jadwal aktif" TextColor="{StaticResource TextDim}" FontSize="12" />
                     </VerticalStackLayout>
                 </Border>
 
-                <Border
-                    Grid.Row="0"
-                    Grid.Column="1"
-                    StrokeShape="RoundRectangle 22"
-                    BackgroundColor="#1E293B"
-                    Padding="18">
-
+                <Border Grid.Row="0" Grid.Column="1" Style="{StaticResource ModernCard}">
                     <VerticalStackLayout Spacing="8">
-                        <Label Text="Pendapatan Hari Ini" TextColor="#94A3B8" FontSize="13" />
-                        <Label x:Name="TodayRevenueLabel" Text="Rp 0" TextColor="White" FontSize="24" FontAttributes="Bold" />
+                        <Label Text="Pendapatan Hari Ini" TextColor="{StaticResource TextMuted}" FontSize="13" />
+                        <Label x:Name="TodayRevenueLabel" Text="Rp 0" TextColor="{StaticResource TextPrimary}" FontSize="24" FontAttributes="Bold" />
+                        <Label Text="invoice paid dummy" TextColor="{StaticResource TextDim}" FontSize="12" />
                     </VerticalStackLayout>
                 </Border>
 
-                <Border
-                    Grid.Row="1"
-                    Grid.Column="0"
-                    StrokeShape="RoundRectangle 22"
-                    BackgroundColor="#1E293B"
-                    Padding="18">
-
+                <Border Grid.Row="1" Grid.Column="0" Style="{StaticResource ModernCard}">
                     <VerticalStackLayout Spacing="8">
-                        <Label Text="Total Customer" TextColor="#94A3B8" FontSize="13" />
-                        <Label x:Name="TotalCustomersLabel" Text="0" TextColor="White" FontSize="34" FontAttributes="Bold" />
+                        <Label Text="Total Customer" TextColor="{StaticResource TextMuted}" FontSize="13" />
+                        <Label x:Name="TotalCustomersLabel" Text="0" TextColor="{StaticResource TextPrimary}" FontSize="34" FontAttributes="Bold" />
+                        <Label Text="database customer" TextColor="{StaticResource TextDim}" FontSize="12" />
                     </VerticalStackLayout>
                 </Border>
 
-                <Border
-                    Grid.Row="1"
-                    Grid.Column="1"
-                    StrokeShape="RoundRectangle 22"
-                    BackgroundColor="#1E293B"
-                    Padding="18">
-
+                <Border Grid.Row="1" Grid.Column="1" Style="{StaticResource ModernCard}">
                     <VerticalStackLayout Spacing="8">
-                        <Label Text="Low Stock" TextColor="#94A3B8" FontSize="13" />
-                        <Label x:Name="LowStockLabel" Text="0" TextColor="White" FontSize="34" FontAttributes="Bold" />
+                        <Label Text="Low Stock" TextColor="{StaticResource TextMuted}" FontSize="13" />
+                        <Label x:Name="LowStockLabel" Text="0" TextColor="{StaticResource Warning}" FontSize="34" FontAttributes="Bold" />
+                        <Label Text="butuh perhatian" TextColor="{StaticResource TextDim}" FontSize="12" />
                     </VerticalStackLayout>
                 </Border>
 
             </Grid>
 
+            <!-- CHART -->
             <Border
-                StrokeShape="RoundRectangle 26"
-                BackgroundColor="#111827"
-                Padding="20">
+                x:Name="RevenueCard"
+                Style="{StaticResource GlassCard}">
 
                 <VerticalStackLayout Spacing="14">
 
-                    <Label
-                        Text="Booking Terdekat"
-                        FontSize="20"
-                        FontAttributes="Bold"
-                        TextColor="White" />
+                    <Grid ColumnDefinitions="*,Auto">
+                        <VerticalStackLayout Spacing="4">
+                            <Label Text="Revenue Overview" Style="{StaticResource SectionTitle}" />
+                            <Label Text="Simulasi tren pendapatan mingguan studio" Style="{StaticResource MutedText}" />
+                        </VerticalStackLayout>
 
-                    <CollectionView x:Name="UpcomingBookingsView">
-                        <CollectionView.ItemTemplate>
-                            <DataTemplate>
-                                <Border
-                                    StrokeShape="RoundRectangle 18"
-                                    BackgroundColor="#1E293B"
-                                    Padding="14"
-                                    Margin="0,0,0,10">
+                        <Border
+                            Grid.Column="1"
+                            StrokeShape="RoundRectangle 99"
+                            BackgroundColor="#102033"
+                            Stroke="{StaticResource StrokeSoft}"
+                            Padding="12,7"
+                            VerticalOptions="Start">
 
-                                    <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto,Auto">
-                                        <Label
-                                            Grid.Row="0"
-                                            Grid.Column="0"
-                                            Text="{Binding CustomerName}"
-                                            TextColor="White"
-                                            FontSize="16"
-                                            FontAttributes="Bold" />
+                            <Label
+                                x:Name="RevenueGrowthLabel"
+                                Text="+0%"
+                                TextColor="{StaticResource Success}"
+                                FontAttributes="Bold"
+                                FontSize="12" />
+                        </Border>
+                    </Grid>
 
-                                        <Label
-                                            Grid.Row="0"
-                                            Grid.Column="1"
-                                            Text="{Binding Status}"
-                                            TextColor="#38BDF8"
-                                            FontSize="12"
-                                            FontAttributes="Bold" />
-
-                                        <Label
-                                            Grid.Row="1"
-                                            Grid.Column="0"
-                                            Grid.ColumnSpan="2"
-                                            Text="{Binding RoomName}"
-                                            TextColor="#CBD5E1"
-                                            FontSize="13" />
-
-                                        <Label
-                                            Grid.Row="2"
-                                            Grid.Column="0"
-                                            Grid.ColumnSpan="2"
-                                            Text="{Binding ScheduleText}"
-                                            TextColor="#94A3B8"
-                                            FontSize="13" />
-                                    </Grid>
-
-                                </Border>
-                            </DataTemplate>
-                        </CollectionView.ItemTemplate>
-                    </CollectionView>
+                    <lvc:CartesianChart
+                        HeightRequest="220"
+                        Series="{Binding RevenueSeries}"
+                        XAxes="{Binding RevenueXAxes}"
+                        YAxes="{Binding RevenueYAxes}"
+                        LegendPosition="Hidden"
+                        TooltipPosition="Top" />
 
                 </VerticalStackLayout>
             </Border>
 
-            <Border
-                StrokeShape="RoundRectangle 26"
-                BackgroundColor="#111827"
-                Padding="20">
+            <!-- CONTENT GRID -->
+            <Grid
+                ColumnDefinitions="*,*"
+                RowDefinitions="Auto"
+                ColumnSpacing="14">
 
-                <VerticalStackLayout Spacing="14">
+                <!-- UPCOMING BOOKINGS -->
+                <Border
+                    x:Name="BookingCard"
+                    Grid.Column="0"
+                    Style="{StaticResource GlassCard}">
 
-                    <Label
-                        Text="Inventory Perlu Perhatian"
-                        FontSize="20"
-                        FontAttributes="Bold"
-                        TextColor="White" />
+                    <VerticalStackLayout Spacing="14">
 
-                    <CollectionView x:Name="LowStockItemsView">
-                        <CollectionView.ItemTemplate>
-                            <DataTemplate>
-                                <Border
-                                    StrokeShape="RoundRectangle 18"
-                                    BackgroundColor="#1E293B"
-                                    Padding="14"
-                                    Margin="0,0,0,10">
+                        <Grid ColumnDefinitions="*,Auto">
+                            <VerticalStackLayout Spacing="4">
+                                <Label Text="Booking Terdekat" Style="{StaticResource SectionTitle}" />
+                                <Label Text="Antrian jadwal yang akan datang" Style="{StaticResource MutedText}" />
+                            </VerticalStackLayout>
 
-                                    <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto">
-                                        <Label
-                                            Grid.Row="0"
-                                            Grid.Column="0"
-                                            Text="{Binding Name}"
-                                            TextColor="White"
-                                            FontSize="16"
-                                            FontAttributes="Bold" />
+                            <Button
+                                Grid.Column="1"
+                                Text="Lihat"
+                                Style="{StaticResource GhostButton}"
+                                HeightRequest="42"
+                                Padding="14,8" />
+                        </Grid>
 
-                                        <Label
-                                            Grid.Row="0"
-                                            Grid.Column="1"
-                                            Text="{Binding StockText}"
-                                            TextColor="#F97316"
-                                            FontSize="13"
-                                            FontAttributes="Bold" />
+                        <CollectionView x:Name="UpcomingBookingsView">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Border
+                                        Style="{StaticResource ModernCard}"
+                                        Padding="14"
+                                        Margin="0,0,0,10">
 
-                                        <Label
-                                            Grid.Row="1"
-                                            Grid.Column="0"
-                                            Grid.ColumnSpan="2"
-                                            Text="{Binding Notes}"
-                                            TextColor="#94A3B8"
-                                            FontSize="13" />
-                                    </Grid>
+                                        <Grid ColumnDefinitions="Auto,*,Auto" RowDefinitions="Auto,Auto" ColumnSpacing="12">
 
-                                </Border>
-                            </DataTemplate>
-                        </CollectionView.ItemTemplate>
-                    </CollectionView>
+                                            <Border
+                                                Grid.RowSpan="2"
+                                                WidthRequest="42"
+                                                HeightRequest="42"
+                                                StrokeShape="RoundRectangle 16"
+                                                BackgroundColor="#11233A"
+                                                Stroke="{StaticResource StrokeSoft}">
 
-                </VerticalStackLayout>
-            </Border>
+                                                <Label
+                                                    Text="♪"
+                                                    TextColor="{StaticResource Accent}"
+                                                    FontSize="20"
+                                                    HorizontalOptions="Center"
+                                                    VerticalOptions="Center" />
+                                            </Border>
+
+                                            <Label
+                                                Grid.Column="1"
+                                                Text="{Binding CustomerName}"
+                                                TextColor="{StaticResource TextPrimary}"
+                                                FontSize="15"
+                                                FontAttributes="Bold" />
+
+                                            <Label
+                                                Grid.Column="2"
+                                                Text="{Binding Status}"
+                                                TextColor="{StaticResource Accent}"
+                                                FontSize="11"
+                                                FontAttributes="Bold" />
+
+                                            <Label
+                                                Grid.Row="1"
+                                                Grid.Column="1"
+                                                Grid.ColumnSpan="2"
+                                                Text="{Binding ScheduleText}"
+                                                TextColor="{StaticResource TextMuted}"
+                                                FontSize="12" />
+
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- INVENTORY ALERTS -->
+                <Border
+                    x:Name="InventoryCard"
+                    Grid.Column="1"
+                    Style="{StaticResource GlassCard}">
+
+                    <VerticalStackLayout Spacing="14">
+
+                        <Grid ColumnDefinitions="*,Auto">
+                            <VerticalStackLayout Spacing="4">
+                                <Label Text="Inventory Alert" Style="{StaticResource SectionTitle}" />
+                                <Label Text="Barang yang stoknya mulai kritis" Style="{StaticResource MutedText}" />
+                            </VerticalStackLayout>
+
+                            <Button
+                                Grid.Column="1"
+                                Text="Restock"
+                                Style="{StaticResource PrimaryButton}"
+                                HeightRequest="42"
+                                Padding="14,8" />
+                        </Grid>
+
+                        <CollectionView x:Name="LowStockItemsView">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Border
+                                        Style="{StaticResource ModernCard}"
+                                        Padding="14"
+                                        Margin="0,0,0,10">
+
+                                        <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto" ColumnSpacing="12">
+
+                                            <Label
+                                                Text="{Binding Name}"
+                                                TextColor="{StaticResource TextPrimary}"
+                                                FontSize="15"
+                                                FontAttributes="Bold" />
+
+                                            <Border
+                                                Grid.Column="1"
+                                                StrokeShape="RoundRectangle 99"
+                                                BackgroundColor="#2C1B11"
+                                                Stroke="#4A2B17"
+                                                Padding="10,5">
+
+                                                <Label
+                                                    Text="{Binding StockText}"
+                                                    TextColor="{StaticResource Warning}"
+                                                    FontSize="11"
+                                                    FontAttributes="Bold" />
+                                            </Border>
+
+                                            <Label
+                                                Grid.Row="1"
+                                                Grid.ColumnSpan="2"
+                                                Text="{Binding Notes}"
+                                                TextColor="{StaticResource TextMuted}"
+                                                FontSize="12" />
+
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+
+                    </VerticalStackLayout>
+                </Border>
+
+            </Grid>
 
         </VerticalStackLayout>
     </ScrollView>
