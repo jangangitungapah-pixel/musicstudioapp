@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using musicstudioapp.Services;
 
 namespace musicstudioapp
 {
@@ -18,8 +19,10 @@ namespace musicstudioapp
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
+            builder.Services.AddSingleton<IStudioDataService, DummyStudioDataService>();
 
             return builder.Build();
         }
     }
 }
+

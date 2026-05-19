@@ -1,0 +1,18 @@
+﻿namespace musicstudioapp.Models;
+
+public class StudioRoom
+{
+    public int Id { get; set; }
+
+    public string Name { get; set; } = string.Empty;
+
+    public string Description { get; set; } = string.Empty;
+
+    public decimal HourlyRate { get; set; }
+
+    public int Capacity { get; set; }
+
+    public bool IsActive { get; set; } = true;
+
+    public string ColorHex { get; set; } = "#38BDF8";
+}
