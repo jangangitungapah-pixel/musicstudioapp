@@ -16,27 +16,7 @@ public class DummyStudioDataService : IStudioDataService
                 HourlyRate = 75000,
                 Capacity = 8,
                 ColorHex = "#38BDF8"
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-           },
+            },
             new()
             {
                 Id = 2,
@@ -53,24 +33,7 @@ public class DummyStudioDataService : IStudioDataService
                 Description = "Ruangan recording vocal, podcast, dan take instrument.",
                 HourlyRate = 125000,
                 Capacity = 5,
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-               ColorHex = "#F97316"
+                ColorHex = "#F97316"
             }
         };
 
@@ -87,24 +50,7 @@ public class DummyStudioDataService : IStudioDataService
                 FullName = "Andi Pratama",
                 BandName = "Noise Weekend",
                 Phone = "081234567890",
-                Ema
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-il = "andi@example.com",
+                Email = "andi@example.com",
                 Notes = "Sering booking malam minggu."
             },
             new()
@@ -119,22 +65,7 @@ il = "andi@example.com",
             new()
             {
                 Id = 3,
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-               FullName = "Maya Lestari",
+                FullName = "Maya Lestari",
                 BandName = "Solo Vocal",
                 Phone = "085677788899",
                 Email = "maya@example.com",
@@ -152,23 +83,6 @@ il = "andi@example.com",
         var bookings = new List<Booking>
         {
             new()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             {
                 Id = 1,
                 StudioRoomId = 1,
@@ -184,23 +98,7 @@ il = "andi@example.com",
                 Notes = "Full band rehearsal."
             },
             new()
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-           {
+            {
                 Id = 2,
                 StudioRoomId = 2,
                 RoomName = "Studio B",
@@ -218,25 +116,7 @@ il = "andi@example.com",
             {
                 Id = 3,
                 StudioRoomId = 3,
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-               RoomName = "Recording Room",
+                RoomName = "Recording Room",
                 CustomerId = 3,
                 CustomerName = "Maya Lestari",
                 StartTime = today.AddDays(1).AddHours(10),
@@ -245,16 +125,7 @@ il = "andi@example.com",
                 DownPayment = 100000,
                 Status = BookingStatus.PendingDp,
                 PaymentStatus = PaymentStatus.Partial,
-         
-
-
-
-
-
-
-
-
-       Notes = "Recording vocal single."
+                Notes = "Recording vocal single."
             }
         };
 
@@ -272,23 +143,6 @@ il = "andi@example.com",
                 Category = InventoryCategory.Consumable,
                 Quantity = 4,
                 MinimumStock = 5,
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 Unit = "set",
                 UnitCost = 45000,
                 SellingPrice = 65000,
@@ -307,26 +161,7 @@ il = "andi@example.com",
             },
             new()
             {
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-               Id = 3,
+                Id = 3,
                 Name = "Mic Dynamic",
                 Category = InventoryCategory.AudioEquipment,
                 Quantity = 6,
@@ -345,26 +180,7 @@ il = "andi@example.com",
     {
         var invoices = new List<Invoice>
         {
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-           new()
+            new()
             {
                 Id = 1,
                 InvoiceNumber = "INV-2026-0001",
@@ -381,23 +197,6 @@ il = "andi@example.com",
                         Quantity = 2,
                         UnitPrice = 75000
                     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 }
             },
             new()
@@ -416,25 +215,7 @@ il = "andi@example.com",
                         Name = "Sewa Studio B - 2 Jam",
                         Quantity = 2,
                         UnitPrice = 50000
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                   },
+                    },
                     new()
                     {
                         Name = "Stick Drum",
@@ -455,28 +236,7 @@ il = "andi@example.com",
             new()
             {
                 Id = 1,
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-              Date = DateTime.Today,
+                Date = DateTime.Today,
                 Title = "Beli Senar Gitar",
                 Category = "Inventory",
                 Amount = 180000,
@@ -493,23 +253,6 @@ il = "andi@example.com",
             }
         };
 
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-       return Task.FromResult(expenses);
+        return Task.FromResult(expenses);
     }
 }

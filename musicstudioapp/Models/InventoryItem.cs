@@ -16,27 +16,7 @@ public class InventoryItem
 
     public decimal UnitCost { get; set; }
 
-    public decimal SellingPrice { get; se
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-t; }
+    public decimal SellingPrice { get; set; }
 
     public DateTime LastUpdatedAt { get; set; } = DateTime.Now;
 
